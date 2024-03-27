@@ -1,34 +1,25 @@
 #!/bin/bash
 
-generate_report() {
+#Define a function
+generate_report(){
+	read -p "Enter the name of the report: " reportUsage
+	touch /home/mbobdas/$reportUsage
+	echo "------------------ VM Usage Report ------------" > /home/mbobdas/$reportUsage
+	echo " " >> /home/mbobdas/$reportUsage
+	echo "------ Date and Time: $(date) -------" >> /home/mbobdas/$reportUsage
+	echo " " >> /home/mbobdas/$reportUsage
+	echo "------------------- CPU Utilization -----------" >> /homembobdas/$reoprtUsage
+	sudo top -b 1 -n 1 | grep -i "CPU" >> /home/mbobdas/$reportUsage
+	echo " " >> /home/mbobdas/reportUsage
+	echo "-------------------- Memory Ustilization -----------" >> /home/mbobdas/$reportUsage
+	sudo free -h >> /home/mbobdas/reportUsage
+	echo " " >> /home/mbobdas/$reportUsage
+	echo "------------------- Disk Utilization -----------" >> /home/mbobdas/$reportUsage
+	sudo df -h >> /home/mbobdas/$reportUsage
+	echo " " >> /home/mbobdas/$reportUsage
+	echo "------------------ End of Report --------------" >> /home/mbobdas/$reportUsage
+	echo "The report is located at /home/mbobdas/$reportUsage."
 
-	current_date_time=$(date +"%Y-%m-%d %H:%M:%S")
-
-
-	echo "Report generate at: $current_date_time"
-	sleep 1
-	echo "-------------:)-----------------------"
-        sleep 1
-
-	#CPU usage details
-
-	echo "CPU Usage:"
-	top -bn1 | grep "Cpu"
-         
-	sleep 1
-	#Memory usage details"
-
-	echo "Memory Usage:"
-	free -m
-
-       sleep 1
-	#Disk usage details
-
-	echo "Disk Usage:"
-	df -h
-
-	echo "-------------:)---------------------"
-	echo "End of Report"
-} 
+}	
 
 generate_report

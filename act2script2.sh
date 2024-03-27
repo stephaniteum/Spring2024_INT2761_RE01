@@ -1,15 +1,19 @@
 #!/bin/bash
 
-echo "Please enter your first and last name: "
-read first_name last_name
+#Define Variables
+read -p "Please enter your first name: " firstNme
+sleep 1
+read -p "Please enter your last name: " lastNme
+sleep 1
+read -p "Please enter your Student ID: " studentID
+sleep 1
 
-echo "Please enter your Student ID: "
-read student_id
+#If/Then Logic evaluating StudentID
 
-#check if the student ID matches 1234
-
-if [ "$student_id" = "1234" ]; then
-	echo "Welcome $first_name $last_name, welcome to your virtual machine!"
+if $studentID = 1234 
+then 
+	echo "Welcome $firstNme $lastNme, welcome to your virtual Machine."
 else
-        echo "Error, invalid StudentID: $student_id. Please try again."
-fi	
+        echo "Error. Invalid StudentID: $studentID. Please try again."
+fi
+

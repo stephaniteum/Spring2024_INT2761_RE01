@@ -1,20 +1,19 @@
 #!/bin/bash
 
-echo "Please enter your name: "
-read name
+#Define teh variable for username
+read -p "Enter your username: " nme
 
-#current hour
+#Evaluate and format the time
+timeDate=$(date +%H)
 
-current_hour=$(date +"%H")
+#If/Then logic that evaluates the time
 
-#Greats them appropriately based on the time of day.
-
-if [ "$current_hour" -lt 12 ]; then
-	echo "Good morning, $name!"
-elif [ "$current_hour" -ge 12 ] && [ "$current_hour" -lt 17 ]; then
-	echo "Good afternoon, $name!"
+if [ $timeDate -lt 12 ] 
+then
+	echo "Good Morning, $nme."
+elif [ $timeDate -lt 17 ] 
+then
+        echo "Good Afternoon, $nme."
 else
-        echo "Good evening, $name!"
-
-fi	
-    	
+       echo "Good Evening, $nme."
+fi       
